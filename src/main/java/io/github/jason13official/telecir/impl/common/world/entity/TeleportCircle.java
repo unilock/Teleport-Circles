@@ -8,6 +8,8 @@ import io.github.jason13official.telecir.impl.common.registry.ModParticles;
 import io.github.jason13official.telecir.impl.common.util.RotationHelper;
 import io.github.jason13official.telecir.impl.server.data.CircleRecord;
 import io.netty.util.Constant;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -117,8 +119,7 @@ public class TeleportCircle extends AbstractTeleportCircle {
     } else {
 
       if (this.activated()) {
-        Minecraft.getInstance()
-            .setScreen(new LocationTeleportScreen(this.getUUID(), this.getName().getString()));
+        this.openLocationTeleportScreen();
       }
 
       return InteractionResult.SUCCESS;
@@ -191,5 +192,11 @@ public class TeleportCircle extends AbstractTeleportCircle {
         }
       }
     }
+  }
+
+  @Environment(EnvType.CLIENT)
+  private void openLocationTeleportScreen() {
+      Minecraft.getInstance()
+              .setScreen(new LocationTeleportScreen(this.getUUID(), this.getName().getString()));
   }
 }

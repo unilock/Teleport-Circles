@@ -26,7 +26,7 @@ public class TeleCirClient implements ClientModInitializer {
 
     EntityRendererRegistry.register(ModEntities.CIRCLE, CircleRenderer::new);
 
-    EntityModelLayerRegistry.registerModelLayer(Constants.CIRCLE_MODEL_LAYER,
+    EntityModelLayerRegistry.registerModelLayer(ConstantsClient.CIRCLE_MODEL_LAYER,
         CircleModel::createBodyLayer);
 
     ParticleFactoryRegistry.getInstance()

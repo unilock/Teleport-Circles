@@ -3,7 +3,7 @@ package io.github.jason13official.telecir.impl.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import io.github.jason13official.telecir.Constants;
+import io.github.jason13official.telecir.ConstantsClient;
 import io.github.jason13official.telecir.TeleCir;
 import io.github.jason13official.telecir.impl.client.model.CircleModel;
 import io.github.jason13official.telecir.impl.common.world.entity.TeleportCircle;
@@ -29,13 +29,13 @@ public class CircleRenderer extends EntityRenderer<TeleportCircle> {
 
   public CircleRenderer(Context context) {
     super(context);
-    this.model = new CircleModel(context.bakeLayer(Constants.CIRCLE_MODEL_LAYER));
+    this.model = new CircleModel(context.bakeLayer(ConstantsClient.CIRCLE_MODEL_LAYER));
   }
 
   @Override
   public ResourceLocation getTextureLocation(TeleportCircle circle) {
-    return TeleCir.DEBUG ? Constants.CIRCLE_DEBUG_TEXTURE
-        : circle.activated() ? Constants.CIRCLE_ACTIVE_TEXTURE : Constants.CIRCLE_INACTIVE_TEXTURE;
+    return TeleCir.DEBUG ? ConstantsClient.CIRCLE_DEBUG_TEXTURE
+        : circle.activated() ? ConstantsClient.CIRCLE_ACTIVE_TEXTURE : ConstantsClient.CIRCLE_INACTIVE_TEXTURE;
   }
 
   @Override
